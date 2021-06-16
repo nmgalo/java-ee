@@ -7,17 +7,12 @@ import java.util.List;
 
 @Entity
 @Data
-public class Movie {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    private String country;
-
-    @Lob
-    private byte[] data;
 
     @ManyToMany
-    private List<Category> categories;
-
+    private List<Movie> movies;
 }

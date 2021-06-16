@@ -22,6 +22,11 @@ public class MovieServiceImpl implements MovieService {
         Movie movie = new Movie();
         movie.setTitle(addMovieInput.getTitle());
         movie.setCountry(addMovieInput.getCountry());
+        try {
+            movie.setData(addMovieInput.getData().getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         movieRepository.save(movie);
 
