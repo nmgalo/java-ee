@@ -13,6 +13,7 @@ public class Category {
     private Long id;
     private String title;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "movies", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "movies_id"))
     private List<Movie> movies;
 }

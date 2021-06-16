@@ -17,7 +17,8 @@ public class Movie {
     @Lob
     private byte[] data;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "category", joinColumns = @JoinColumn(name = "movies_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
 
 }
