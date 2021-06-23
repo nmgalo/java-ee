@@ -1,6 +1,7 @@
 package ge.edu.btu.quiz_4.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,5 +16,6 @@ public class Category {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "movies", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "movies_id"))
+    @ToString.Exclude
     private List<Movie> movies;
 }
