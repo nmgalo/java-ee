@@ -6,6 +6,9 @@ import ge.edu.btu.quiz_4.service.CategoryService;
 import ge.edu.btu.quiz_4.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/api")
@@ -28,7 +31,7 @@ public class MovieController {
     }
 
     @PostMapping("/addMovie")
-    public AddMovieOutput addMovie(AddMovieInput addMovieInput) {
+    public AddMovieOutput addMovie(@RequestBody AddMovieInput addMovieInput) {
         return movieService.addMovie(addMovieInput);
     }
 
